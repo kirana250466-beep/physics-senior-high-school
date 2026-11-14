@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // PENTING: "name" harus sama persis dengan nama Worker di dashboard Cloudflare
+  "name": "jelajah-fisika-usaha-energi",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": { "enabled": true }
+}

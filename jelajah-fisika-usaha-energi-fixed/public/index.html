@@ -1,0 +1,206 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Jelajah Fisika: misi, wahana simulasi, dan latihan soal Usaha dan Energi.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Jelajah Fisika · Usaha dan Energi</title>
+<style>
+*{box-sizing:border-box}
+:root{--bg:#f3f6fa;--cd:#fff;--tx:#14213d;--mu:#5d6b85;--ln:#dbe3ef;--ac:#2457d6;--ep:#0e9f8e;--ek:#e8820c;--em:#6b4fd8;--ok:#1b8a46;--no:#c62f2f;--hd:#14213d;color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1626;--cd:#18223a;--tx:#e8edf8;--mu:#9aa7c2;--ln:#2a3654;--ac:#7aa2ff;--ep:#33c9b6;--ek:#ffa94d;--em:#a592ff;--ok:#4cc27a;--no:#ff7b7b;--hd:#0a0f1c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1626;--cd:#18223a;--tx:#e8edf8;--mu:#9aa7c2;--ln:#2a3654;--ac:#7aa2ff;--ep:#33c9b6;--ek:#ffa94d;--em:#a592ff;--ok:#4cc27a;--no:#ff7b7b;--hd:#0a0f1c;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hd);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;background:var(--hd);color:#fff}
+header b{font:700 18px Georgia,serif;margin-right:auto}
+nav{display:flex;gap:4px}nav button{border:0;border-radius:99px;padding:7px 14px;background:transparent;color:#cfd8ee;font:inherit;font-size:14px;cursor:pointer}
+nav button.on{background:#fff;color:#14213d;font-weight:700}#pr{font-size:13px;color:#cfd8ee}
+main{max-width:760px;margin:0 auto;padding:14px 14px 40px}
+.path{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 12px}
+.path button{flex:none;display:flex;align-items:center;gap:8px;border:1px solid var(--ln);background:var(--cd);color:var(--tx);border-radius:99px;padding:6px 14px 6px 6px;font:inherit;font-size:14px;cursor:pointer}
+.path i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--ln);font-style:normal;font-weight:700;font-size:13px}
+.path .cur{border-color:var(--ac);box-shadow:0 0 0 2px var(--ac)}.path .dn i{background:var(--ok);color:#fff}
+.card{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:18px}
+.sub{margin:0 0 10px;color:var(--mu);font-size:14px}
+.dots{display:flex;gap:6px;margin-bottom:14px}.dots u{flex:1;height:5px;border-radius:3px;background:var(--ln)}.dots u.on{background:var(--ac)}
+h3{font:700 22px/1.25 Georgia,serif;margin:0 0 10px}
+.f{background:var(--bg);border-left:4px solid var(--em);border-radius:8px;padding:10px 14px;margin:10px 0;font:italic 19px/1.5 Georgia,serif;overflow-x:auto}
+.ex,.tip{border-radius:10px;padding:10px 14px;margin:12px 0;font-size:15px}
+.ex{background:rgba(14,159,142,.12);border:1px solid rgba(14,159,142,.45)}.tip{background:rgba(232,130,12,.12);border:1px solid rgba(232,130,12,.45)}
+ul,ol{padding-left:22px;margin:8px 0}li{margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;display:block;overflow-x:auto}td,th{padding:6px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}
+.q{margin:14px 0}.o{display:grid;gap:8px}
+.o button{text-align:left;padding:10px 12px;border:1px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx);font:inherit;cursor:pointer}
+.o .ok{border-color:var(--ok);background:rgba(27,138,70,.16)}.o .no{border-color:var(--no);background:rgba(198,47,47,.14)}
+.e{margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--bg);font-size:15px}
+.nb{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.nb button,.go{border:0;border-radius:10px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer;background:var(--ln);color:var(--tx)}
+.nb .pri{background:var(--ac);color:var(--hd)}.nb button:disabled{opacity:.4;cursor:not-allowed}
+.go{background:rgba(36,87,214,.14);color:var(--ac);padding:8px 14px;font-size:14px;margin-top:4px}
+svg{width:100%;height:auto;background:var(--bg);border-radius:10px;display:block}
+.tl{stroke:var(--mu);stroke-width:2;fill:none}.fa{stroke:var(--ek);stroke-width:4;stroke-linecap:round}.st{fill:var(--tx);font-size:12px}
+.ctl label{display:block;margin-top:10px;font-weight:600;font-size:14px}.ctl b{float:right;font-family:Consolas,monospace;color:var(--ac)}
+input[type=range]{width:100%;accent-color:var(--ac)}
+.out{margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--bg);font-size:15px}.out p{margin:6px 0 0}
+.bar{display:grid;grid-template-columns:52px 1fr 76px;align-items:center;gap:8px;margin:4px 0;font-size:13px}
+.bar div{height:12px;border-radius:6px;background:var(--ln);overflow:hidden}.bar i{display:block;height:100%}
+.sc{font-weight:700;color:var(--ac)}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.il{margin:8px 0}.big{fill:var(--tx);font:italic 700 18px Georgia,serif}.wt{fill:var(--cd);font-size:12px;font-weight:700}.wb{fill:var(--cd);font:700 20px Georgia,serif}.em{font-size:32px}
+.ch{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0}.ch b{min-width:96px;font-size:14px}.ch span{padding:3px 10px;border-radius:99px;background:var(--bg);border:1px solid var(--ln);font-size:13px}.ch i{color:var(--mu);font-style:normal}
+details{margin:10px 0}summary{cursor:pointer;font-weight:700;color:var(--ac);padding:6px 0}details>:not(summary){margin-top:8px}
+.pb{border:1px solid var(--ln);border-radius:10px;padding:2px 12px;background:var(--bg)}
+.stp{counter-reset:s;list-style:none;padding:0;margin:6px 0}.stp li{counter-increment:s;display:flex;gap:10px;align-items:flex-start;margin:8px 0;font-size:15px}.stp li:before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;background:var(--ac);color:var(--cd);display:grid;place-items:center;font-size:12px;font-weight:700}
+.tg{border:0;border-radius:10px;padding:8px 14px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;background:rgba(36,87,214,.14);color:var(--ac)}
+</style></head><body>
+<header><b>⚡ Usaha dan Energi</b><nav><button data-t="misi">Misi</button><button data-t="wahana">Wahana</button><button data-t="latihan">Latihan</button></nav><span id="pr"></span></header>
+<main id="m"></main>
+<script>
+const $=s=>document.querySelector(s),f=(x,d=1)=>(+x.toFixed(d)).toLocaleString('id-ID');
+let D={m:{}};try{D=JSON.parse(localStorage.getItem('ue1'))||D}catch(e){}
+const sv=()=>{try{localStorage.setItem('ue1',JSON.stringify(D))}catch(e){}};
+let S={tab:'misi',mi:0,st:0,sim:0,pre:null};
+const G=(i,p,l)=>`<button class="go" data-sim="${i}" data-pre='${JSON.stringify(p)}'>${l||'Coba di Wahana'}</button>`;
+const M=[
+{t:'Usaha',s:'Capek belum tentu usaha menurut fisika',st:[
+`<h3>Kapan gaya dianggap bekerja?</h3><p><b>Usaha</b> adalah energi yang dipindahkan sebuah gaya saat benda berpindah. Tanpa perpindahan, tidak ada usaha, sekeras apa pun tenagamu.</p><p>Gaya melakukan usaha jika ada gaya, benda berpindah, dan ada komponen gaya yang <b>searah</b> perpindahan.</p><div class="tip"><b>Uji nalar.</b> Rina mendorong dinding 10 menit: usaha nol karena dinding diam. Dodi mengangkat galon ke dispenser: ada usaha. Andi berjalan mendatar membawa tas: gaya angkat tangannya tegak lurus gerak, usaha nol.</div>`,
+`<h3>Rumus usaha</h3><div class="f">W = F · s · cos θ</div><p>W dalam joule (J), F dalam newton, s dalam meter. θ adalah sudut antara <b>gaya</b> dan <b>perpindahan</b>, bukan sudut terhadap lantai.</p><table><tr><th>Sudut θ<th>Usaha<th>Contoh<tr><td>0°<td>positif terbesar<td>mendorong lurus ke depan<tr><td>0° sampai 90°<td>positif<td>koper ditarik tali miring<tr><td>90°<td><b>nol</b><td>gaya normal, gaya sentripetal<tr><td>90° sampai 180°<td>negatif<td>gaya gesek dan rem (180°)</table><p>Usaha negatif berarti gaya mengambil energi sehingga benda melambat. Usaha total adalah jumlah aljabar usaha tiap gaya.</p><div class="ex"><b>Contoh.</b> Koper ditarik 80 N pada sudut 60° sejauh 5 m: W = 80 × 5 × cos 60° = <b>200 J</b>. Jika tali mendatar, W = 400 J.</div>${G(0,{F:80,t:60,s:5})}`,
+`<h3>Gaya berat, gaya gesek, dan grafik</h3><ul><li><b>Gaya berat:</b> W = m g (h<sub>awal</sub> − h<sub>akhir</sub>). Turun positif, naik negatif, tidak bergantung bentuk lintasan.</li><li><b>Gaya gesek:</b> W = −f · s, dengan f = μN. Selalu negatif, makin besar jika lintasan makin panjang.</li><li><b>Grafik F–s:</b> usaha sama dengan <b>luas</b> di bawah grafik. Pecah menjadi segitiga dan persegi panjang, lalu jumlahkan.</li></ul><div class="ex"><b>Contoh.</b> Anak 40 kg menaiki tangga 3 m: W<sub>berat</sub> = −40 × 10 × 3 = <b>−1.200 J</b>. Balok ditarik 40 N sejauh 3 m dengan gesek 15 N: W<sub>total</sub> = 120 − 45 = <b>75 J</b>.</div>`],
+q:[{q:'Siswa membawa tas sambil berjalan mendatar dengan laju tetap. Usaha gaya angkat tangannya pada tas adalah ...',o:['Positif','Negatif','Nol','Bergantung massa tas'],a:2,e:'Gaya angkat tegak lurus perpindahan (θ = 90°), cos 90° = 0, jadi W = 0.'},
+{q:'Gaya 50 N bersudut 37° terhadap perpindahan menggeser benda 8 m (cos 37° = 0,8). Usahanya ...',o:['400 J','320 J','240 J','200 J'],a:1,e:'W = 50 × 8 × 0,8 = 320 J.'}]},
+{t:'Energi',s:'Energi kinetik, potensial, dan teorema usaha-energi',st:[
+`<h3>Energi dan energi kinetik</h3><p><b>Energi</b> adalah kemampuan melakukan usaha, satuannya joule. Energi tidak dapat diciptakan atau dimusnahkan, hanya berubah bentuk atau berpindah.</p><div class="f">E<sub>k</sub> = ½ m v²</div><p>Laju dikuadratkan: laju 2 kali berarti E<sub>k</sub> 4 kali. Ubah km/jam ke m/s dengan membagi 3,6.</p><div class="ex"><b>Contoh.</b> Mobil 1.000 kg pada 20 m/s: E<sub>k</sub> = ½ × 1.000 × 20² = <b>200 kJ</b>. Pada 40 m/s menjadi 800 kJ, sebab itu tabrakan cepat jauh lebih berbahaya.</div>`,
+`<h3>Teorema usaha dan energi</h3><div class="f">W<sub>total</sub> = ΔE<sub>k</sub> = ½ m v₂² − ½ m v₁²</div><p>Usaha total positif membuat benda makin cepat, negatif membuatnya melambat, nol membuat lajunya tetap. Cocok untuk soal gaya, jarak, dan laju tanpa waktu.</p><div class="ex"><b>Contoh 1.</b> Balok 2 kg diam, didorong 16 N sejauh 4 m di lantai licin: 64 = ½ × 2 × v², jadi <b>v = 8 m/s</b>.</div><div class="ex"><b>Contoh 2.</b> Mobil 800 kg pada 20 m/s direm 4.000 N: −4.000 s = −160.000, jadi <b>s = 40 m</b>. Laju 2 kali berarti jarak rem 4 kali.</div>`,
+`<h3>Energi potensial dan jenis gaya</h3><div class="f">E<sub>p</sub> = m g h</div><div class="f">F = k x &nbsp;&nbsp; E<sub>p pegas</sub> = ½ k x²</div><ul><li>h diukur dari titik acuan pilihanmu, jadi E<sub>p</sub> bisa nol atau negatif. Yang bermakna adalah perubahannya: W<sub>berat</sub> = −ΔE<sub>p</sub>.</li><li>k konstanta pegas (N/m), x simpangan dari panjang alami (m).</li><li><b>Gaya konservatif</b> (berat, pegas): usaha hanya bergantung posisi awal dan akhir, energi mekanik tetap. <b>Non-konservatif</b> (gesek, hambatan udara): usaha bergantung lintasan, energi mekanik berubah.</li></ul><div class="ex"><b>Contoh.</b> Pegas k = 200 N/m ditarik 0,1 m: F = 20 N dan E<sub>p</sub> = <b>1 J</b>. Menariknya dari 0,1 sampai 0,3 m butuh ½ × 200 × (0,3² − 0,1²) = <b>8 J</b>.</div>${G(2,{k:200,x:.1,m:.5})}`],
+q:[{q:'Laju mobil menjadi 3 kali semula. Energi kinetiknya menjadi ...',o:['3 kali','6 kali','9 kali','27 kali'],a:2,e:'E<sub>k</sub> sebanding dengan v², jadi 3² = 9.'},
+{q:'Buku 2 kg berada di meja setinggi 0,8 m dari lantai. Energi potensialnya terhadap lantai (g = 10 m/s²) ...',o:['1,6 J','8 J','16 J','160 J'],a:2,e:'E<sub>p</sub> = 2 × 10 × 0,8 = 16 J.'}]},
+{t:'Energi mekanik',s:'Kekekalan energi, gesekan, dan jurus soal',st:[
+`<h3>Hukum Kekekalan Energi Mekanik</h3><div class="f">E<sub>m</sub> = E<sub>p</sub> + E<sub>k</sub> = m g h + ½ m v²</div><p>Jika hanya gaya konservatif yang bekerja (lintasan licin, tanpa hambatan udara), energi mekanik di setiap titik sama:</p><div class="f">E<sub>m1</sub> = E<sub>m2</sub> &nbsp;→&nbsp; v₂² = v₁² + 2g(h₁ − h₂)</div><p>Gaya normal tegak lurus gerak, usahanya nol. Massa tercoret dan bentuk lintasan tidak berpengaruh, hanya beda tinggi.</p><ul><li>Jatuh atau meluncur dari diam setinggi h: <b>v = √(2gh)</b></li><li>Dilempar ke atas dengan v₀: <b>h<sub>maks</sub> = v₀² / 2g</b></li><li>Pegas melontarkan benda: <b>v = x√(k/m)</b></li></ul><div class="ex"><b>Contoh.</b> Roller coaster dilepas dari diam di 40 m. Di ketinggian 15 m: v² = 2 × 10 × 25 = 500, jadi <b>v ≈ 22,4 m/s</b>.</div>${G(1,{H:5,m:2,f:0,p:.5})}`,
+`<h3>Jika ada gesekan</h3><div class="f">E<sub>m2</sub> = E<sub>m1</sub> − f · s</div><p>Energi total tetap kekal. Yang berkurang adalah energi <b>mekanik</b>, karena sebagian berubah menjadi kalor dan bunyi.</p><div class="ex"><b>Contoh.</b> Balok 2 kg dari diam di puncak bidang miring 5 m (panjang 10 m), tiba di dasar dengan 6 m/s. E<sub>m1</sub> = 100 J, E<sub>m2</sub> = 36 J, jadi kalor = <b>64 J</b> dan f = 64/10 = <b>6,4 N</b>.</div>${G(1,{H:5,m:2,f:6.4,p:1})}<p><b>Bola memantul</b> tidak kembali ke tinggi semula karena tumbukan dengan lantai membuang energi. Tinggi pantulan berikutnya h′ = e² · h. Jatuh dari 8 m lalu memantul 4 m berarti e² = ½, pantulan kedua 2 m.</p>`,
+`<h3>Jurus 4 langkah soal energi</h3><ol><li><b>Tentukan dua keadaan,</b> awal (1) dan akhir (2): tinggi, laju, simpangan pegas.</li><li><b>Pilih titik acuan</b> h = 0, biasanya titik terendah.</li><li><b>Cek gesekan.</b> Licin: E<sub>m1</sub> = E<sub>m2</sub>. Kasar: E<sub>m2</sub> = E<sub>m1</sub> − f s.</li><li><b>Tulis persamaan,</b> coret massa bila semua suku memuatnya, hitung, lalu cek masuk akal atau tidak.</li></ol><div class="tip">Soal menanyakan laju atau tinggi di dua titik tanpa menyebut waktu? Pakai energi, biasanya lebih cepat daripada hukum Newton.</div>`],
+q:[{q:'Dua bola identik dilepas dari tinggi sama pada lintasan licin, satu lurus dan satu melengkung. Laju di dasar ...',o:['Lebih besar di lintasan lurus','Lebih besar di lintasan melengkung','Sama','Bergantung massa'],a:2,e:'v = √(2gh). Hanya beda tinggi yang berpengaruh.'},
+{q:'Anak 30 kg meluncur dari ketinggian 3,2 m pada seluncuran licin. Laju di dasar (g = 10 m/s²) ...',o:['4 m/s','6,4 m/s','8 m/s','10 m/s'],a:2,e:'v = √(2 × 10 × 3,2) = √64 = 8 m/s. Massa anak tidak berpengaruh.'}]},
+{t:'Daya',s:'Daya, efisiensi, dan energi listrik',st:[
+`<h3>Daya: seberapa cepat usaha dilakukan</h3><div class="f">P = W / t = F · v</div><p>Satuannya watt: 1 W = 1 J/s. 1 kW = 1.000 W dan 1 hp ≈ 746 W. Karena P = F v, mobil melambat di tanjakan: daya mesin tetap, gaya yang dibutuhkan lebih besar, jadi laju turun.</p><div class="ex"><b>Contoh.</b> Lift 800 kg naik 15 m dalam 20 s dengan laju tetap: W = 800 × 10 × 15 = 120.000 J, maka P = 120.000 / 20 = <b>6 kW</b>.</div>`,
+`<h3>Energi listrik dan efisiensi</h3><div class="f">W = P · t &nbsp;&nbsp; 1 kWh = 3,6 × 10⁶ J</div><div class="f">η = (W<sub>keluaran</sub> / W<sub>masukan</sub>) × 100%</div><p><b>kWh adalah satuan energi, bukan daya.</b> Efisiensi selalu kurang dari 100% karena sebagian energi menjadi kalor dan bunyi. Energi itu tidak hilang, hanya tidak berguna.</p><div class="ex"><b>Contoh 1.</b> AC 600 W menyala 8 jam sehari selama 30 hari: 0,6 × 8 × 30 = 144 kWh. Pada Rp1.500 per kWh, biayanya <b>Rp216.000</b>.</div><div class="ex"><b>Contoh 2.</b> Pompa mengangkat 120 kg air per menit setinggi 10 m dengan efisiensi 80%: P<sub>keluar</sub> = 12.000/60 = 200 W, jadi P<sub>masuk</sub> = 200/0,8 = <b>250 W</b>.</div>`],
+q:[{q:'Manakah yang merupakan satuan energi?',o:['Watt','Kilowatt','Kilowatt-jam','Joule per sekon'],a:2,e:'kWh adalah energi yang dipakai alat 1 kW selama 1 jam.'},
+{q:'Motor menerima energi 500 J dan menghasilkan energi gerak 400 J. Efisiensinya ...',o:['20%','80%','100%','125%'],a:1,e:'η = 400/500 × 100% = 80%. Sisanya 100 J menjadi kalor dan bunyi.'}]},
+{t:'Sumber energi',s:'Transformasi energi dan hemat energi',st:[
+`<h3>Dari mana listrik berasal?</h3><p><b>Terbarukan:</b> matahari, angin, air, panas bumi, biomassa. <b>Tak terbarukan:</b> minyak bumi, gas alam, batu bara, uranium. Indonesia berada di Cincin Api Pasifik dan khatulistiwa, jadi kaya panas bumi dan sinar matahari.</p><table><tr><th>Pembangkit<th>Rantai perubahan energi<tr><td>PLTA<td>potensial air → kinetik air → kinetik turbin → listrik<tr><td>PLTU<td>kimia batu bara → kalor → kinetik uap → kinetik turbin → listrik<tr><td>PLTS<td>cahaya matahari → listrik<tr><td>PLTB<td>kinetik angin → kinetik baling-baling → listrik<tr><td>PLTP<td>kalor bumi → kinetik uap → kinetik turbin → listrik</table><p>Di PLTA, ketinggian bendungan menentukan E<sub>p</sub> yang tersedia: P = m g h / t.</p>`,
+`<h3>Energi kekal, mengapa tetap hemat?</h3><p>Setiap perubahan bentuk membuang sebagian energi menjadi kalor yang tersebar dan sulit dipakai lagi. Jumlah energi tetap, tetapi <b>energi yang berguna</b> berkurang.</p><ul><li>Matikan lampu dan cabut charger yang tidak dipakai.</li><li>Pilih alat berefisiensi tinggi, misalnya lampu LED.</li><li>Manfaatkan cahaya alami; jalan kaki atau naik angkutan umum untuk jarak dekat.</li><li>Rawat mesin agar gesekan dan energi terbuang berkurang.</li></ul>`],
+q:[{q:'Rantai perubahan energi pada PLTA yang benar ...',o:['kimia → kalor → listrik','potensial air → kinetik air → kinetik turbin → listrik','cahaya → listrik','kinetik angin → listrik'],a:1,e:'Air di bendungan menyimpan E<sub>p</sub>, jatuh menjadi E<sub>k</sub> air, memutar turbin, lalu generator menghasilkan listrik.'},
+{q:'Jika energi kekal, mengapa kita tetap perlu berhemat?',o:['Jumlah energi berkurang','Energi berguna berubah menjadi kalor yang tersebar','Energi musnah oleh gesekan','Energi tidak bisa berubah bentuk'],a:1,e:'Yang berkurang adalah energi yang masih berguna, bukan jumlah totalnya.'}]},
+{t:'Jurus kilat',s:'Rangkuman untuk dibaca sebelum ujian',st:[
+`<h3>Empat hubungan emas</h3><table><tr><th>Hubungan<th>Dipakai saat<tr><td>W<sub>total</sub> = ΔE<sub>k</sub><td>ada gaya, jarak, dan laju<tr><td>W<sub>berat</sub> = −ΔE<sub>p</sub> = mg(h<sub>awal</sub> − h<sub>akhir</sub>)<td>benda naik atau turun<tr><td>W<sub>pegas</sub> = −ΔE<sub>p pegas</sub><td>ada pegas<tr><td>W<sub>nk</sub> = ΔE<sub>m</sub><td>ada gesekan atau gaya dorong</table><div class="tip">Hampir semua soal berpola sama: tentukan keadaan awal dan akhir, cek gesekan, tulis energi di kedua titik, lalu hitung.</div>`,
+`<h3>Rumus cepat</h3><table><tr><td>Usaha<td>W = F s cos θ<tr><td>Usaha gesek<td>W = −f s, f = μN<tr><td>Energi kinetik<td>½ m v²<tr><td>Energi potensial<td>m g h<tr><td>Pegas<td>F = k x, E<sub>p</sub> = ½ k x²<tr><td>Energi mekanik<td>E<sub>m</sub> = E<sub>k</sub> + E<sub>p</sub><tr><td>Kekekalan<td>v₂² = v₁² + 2g(h₁ − h₂)<tr><td>Dengan gesekan<td>E<sub>m2</sub> = E<sub>m1</sub> − f s<tr><td>Daya<td>P = W/t = F v<tr><td>Energi listrik<td>W = P t; 1 kWh = 3,6 × 10⁶ J<tr><td>Efisiensi<td>η = W<sub>keluar</sub>/W<sub>masuk</sub> × 100%</table>`,
+`<h3>Kata kunci dan jebakan</h3><ul><li>“licin”, “tanpa gesekan”: E<sub>m1</sub> = E<sub>m2</sub>. “Kasar”, “ada gaya gesek”: E<sub>m</sub> berkurang f s.</li><li>“dilepas”, “dari diam”: v awal = 0. “Berhenti”, “titik tertinggi”: v = 0.</li><li>“Laju tetap”: usaha total nol, gaya dorong = gaya hambatan.</li><li>“Pegas kembali ke panjang alami”: x = 0.</li></ul><p><b>Kesalahan umum:</b> satuan belum seragam (g ke kg, km/jam ke m/s, cm ke m), lupa laju awal, salah sudut θ, lupa mengkuadratkan atau lupa ½, menganggap E<sub>p</sub> selalu positif, memakai E<sub>m1</sub> = E<sub>m2</sub> saat ada gesekan, dan mengira kWh satuan daya.</p>`]}];
+const SIMS=[
+{n:'Usaha',d:'Atur gaya, sudut, dan perpindahan. Hanya komponen F cos θ yang menentukan usaha.',
+c:[['F','Gaya F (N)',10,100,1,60],['t','Sudut θ (derajat)',0,180,1,30],['s','Perpindahan s (m)',1,10,.5,5]],
+r:v=>{const a=v.t*Math.PI/180,c=Math.cos(a),W=v.F*v.s*c,L=v.F*.8,ex=150+L*c,ey=107-L*Math.sin(a);
+return{svg:`<svg viewBox="0 0 360 160"><line class="tl" x1="10" y1="120" x2="350" y2="120"/><rect x="130" y="95" width="40" height="25" rx="4" style="fill:var(--ac)"/><line class="tl" stroke-dasharray="4 3" x1="150" y1="107" x2="${150+L*c}" y2="107"/><line class="fa" x1="150" y1="107" x2="${ex}" y2="${ey}"/><circle cx="${ex}" cy="${ey}" r="5" style="fill:var(--ek)"/><line x1="150" y1="138" x2="${150+v.s*18}" y2="138" style="stroke:var(--ep);stroke-width:3"/><text class="st" x="150" y="154">perpindahan s</text></svg>`,
+out:`F cos θ = ${f(v.F*c)} N<p>W = F · s · cos θ = <b>${f(W)} J</b> (${W>.05?'usaha positif':W<-.05?'usaha negatif':'usaha nol'})</p>`}}},
+{n:'Energi mekanik',d:'Geser posisi benda dari puncak ke dasar. Tanpa gesekan, E_m tetap. Tambah gesekan, sebagian energi menjadi kalor.',
+c:[['H','Tinggi awal (m)',1,10,.5,5],['m','Massa (kg)',1,5,.5,2],['f','Gaya gesek (N)',0,10,.1,0],['p','Posisi (0 puncak, 1 dasar)',0,1,.01,0]],
+r:v=>{const g=10,L=2*v.H,hf=(1+Math.cos(Math.PI*v.p))/2,h=v.H*hf,E=v.m*g*v.H,Ep=v.m*g*h,Q=Math.min(v.f*v.p*L,E-Ep),Ek=Math.max(0,E-Ep-Q),sp=Math.sqrt(2*Ek/v.m);
+let d='';for(let i=0;i<=40;i++)d+=(i?'L':'M')+(20+8*i)+' '+(20+100*(1-(1+Math.cos(Math.PI*i/40))/2));
+const bar=(n,x,c)=>`<div class="bar"><span>${n}</span><div><i style="width:${x/E*100}%;background:${c}"></i></div><b>${f(x)} J</b></div>`;
+return{svg:`<svg viewBox="0 0 360 150"><path class="tl" d="${d}"/><circle cx="${20+320*v.p}" cy="${20+100*(1-hf)-9}" r="9" style="fill:var(--ek)"/></svg>`,
+out:bar('Ep',Ep,'var(--ep)')+bar('Ek',Ek,'var(--ek)')+bar('Kalor',Q,'var(--mu)')+`<p>E<sub>m</sub> = ${f(Ep+Ek)} J &nbsp; Laju = <b>${f(sp)} m/s</b> &nbsp; Tinggi = ${f(h)} m</p>`}}},
+{n:'Pegas',d:'Tarik pegas, lihat gaya, energi yang tersimpan, dan laju maksimum benda saat dilepas.',
+c:[['k','Konstanta k (N/m)',50,500,10,200],['x','Simpangan x (m)',0,.3,.01,.1],['m','Massa benda (kg)',.1,2,.1,.5]],
+r:v=>{const len=100+v.x*400,p=[];for(let i=0;i<=14;i++)p.push((20+len*i/14)+','+(i%14?75+(i%2?-10:10):75));
+return{svg:`<svg viewBox="0 0 360 150"><line class="tl" x1="10" y1="105" x2="350" y2="105"/><line class="tl" x1="20" y1="50" x2="20" y2="105"/><polyline class="tl" points="${p.join(' ')}"/><rect x="${20+len}" y="62" width="40" height="43" rx="4" style="fill:var(--ac)"/></svg>`,
+out:`F = k x = <b>${f(v.k*v.x)} N</b><p>E<sub>p</sub> = ½ k x² = <b>${f(.5*v.k*v.x*v.x,2)} J</b></p><p>Laju maksimum saat dilepas: ${f(v.x*Math.sqrt(v.k/v.m),2)} m/s</p>`}}}];
+const LQ=[
+{q:'Balok 2 kg dilepas dari diam pada ketinggian 0,4 m di permukaan datar licin, lalu menabrak pegas k = 400 N/m. Simpangan maksimum pegas ...',o:['0,05 m','0,10 m','0,20 m','0,40 m','0,80 m'],a:2,e:'Energi mekanik kekal. Saat pegas tertekan maksimum, E<sub>k</sub> = 0, sehingga m g h = ½ k x²: 8 = 200 x², x = 0,2 m. Jebakan: lupa ½ pada energi pegas.',sim:[2,{k:400,x:.2,m:2}]},
+{q:'Bola meluncur dari A ke B pada lintasan licin. Laju di A = 3 m/s dan B berada 4,6 m lebih rendah. Laju di B (g = 10 m/s²) ...',o:['√100 m/s','√101 m/s','√65 m/s','√92 m/s','√52 m/s'],a:1,e:'v<sub>B</sub>² = v<sub>A</sub>² + 2g(h<sub>A</sub> − h<sub>B</sub>) = 9 + 92 = 101. Jebakan: lupa v<sub>A</sub>² = 9 menghasilkan √92.'},
+{q:'Bola 100 gram dijatuhkan dari 8 m, lalu memantul sampai 4 m. Tinggi pantulan kedua ...',o:['1,6 m','2,0 m','2,4 m','2,6 m','3,0 m'],a:1,e:'Tiap pantulan mengalikan tinggi dengan e². Dari 8 ke 4 berarti e² = ½, jadi pantulan kedua 4 × ½ = 2 m. Massa tidak diperlukan.'},
+{q:'Benda A bermassa m berlaju 2v. Benda B bermassa 4m berlaju v. Perbandingan E<sub>k</sub> A : E<sub>k</sub> B ...',o:['1 : 1','1 : 2','2 : 1','1 : 4','4 : 1'],a:0,e:'E<sub>k,A</sub> = ½ m (2v)² = 2 m v² dan E<sub>k,B</sub> = ½ (4m) v² = 2 m v². Sama, jadi 1 : 1.'},
+{q:'Mobil 1.200 kg melaju 72 km/jam lalu direm sampai berhenti setelah 50 m. Gaya rem rata-rata ...',o:['2.400 N','3.600 N','4.800 N','6.000 N','7.200 N'],a:2,e:'72 km/jam = 20 m/s. ΔE<sub>k</sub> = −½ × 1.200 × 20² = −240.000 J. −F s = ΔE<sub>k</sub>, jadi F = 240.000 / 50 = 4.800 N.'},
+{q:'Balok 4 kg dilepas dari diam di puncak bidang miring setinggi 3 m (panjang 6 m) dan tiba di dasar dengan 6 m/s. Energi yang menjadi kalor dan gaya gesek rata-ratanya ...',o:['24 J dan 4 N','48 J dan 8 N','72 J dan 12 N','120 J dan 20 N'],a:1,e:'E<sub>m1</sub> = 4 × 10 × 3 = 120 J dan E<sub>m2</sub> = ½ × 4 × 6² = 72 J. Kalor = 48 J, f = 48 / 6 = 8 N.',sim:[1,{H:3,m:4,f:8,p:1}]},
+{q:'Motor listrik 2 kW berefisiensi 75% bekerja 3 jam. Dengan tarif Rp1.500 per kWh, biaya listrik yang dipakai ...',o:['Rp4.500','Rp6.750','Rp9.000','Rp12.000'],a:2,e:'Energi masukan = 2 × 3 = 6 kWh, biaya = 6 × 1.500 = Rp9.000. Efisiensi hanya menentukan energi berguna (4,5 kWh), bukan tagihan.'}];
+const TF=[['Jika ada gesekan, hukum kekekalan energi tidak berlaku sama sekali.',1,'Energi total tetap kekal. Yang tidak kekal hanya energi mekanik, karena sebagian menjadi kalor.'],
+['Energi potensial gravitasi selalu bernilai positif.',1,'Nilainya bergantung titik acuan. Di bawah acuan, E<sub>p</sub> negatif.'],
+['Pada benda yang meluncur di lantai diam, usaha gaya gesek kinetik bernilai negatif.',0,'Gesek berlawanan arah gerak (θ = 180°), jadi W = −f s.'],
+['Usaha menarik pegas dari 0 ke 2 cm lebih kecil daripada dari 2 cm ke 4 cm.',0,'Usaha pertama ½k(2²) = 2k, kedua ½k(4² − 2²) = 6k. Gayanya makin besar.'],
+['kWh adalah satuan daya.',1,'kWh satuan energi (1 kWh = 3,6 × 10⁶ J). Satuan daya adalah watt.']].map(([q,a,e])=>({q,o:['Benar','Salah'],a,e}));
+const SV=(h,b)=>`<svg class="il" viewBox="0 0 360 ${h}">${b}</svg>`,
+X=(x,y,t,c='st',a='middle')=>`<text x="${x}" y="${y}" class="${c}" text-anchor="${a}">${t}</text>`,
+L=(a,b,c,d,k='tl',e='')=>`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" class="${k}" ${e}/>`,
+R=(x,y,w,h,c)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" style="fill:${c}"/>`,
+O=(x,y,r,c)=>`<circle cx="${x}" cy="${y}" r="${r}" style="fill:${c}"/>`,
+AR=(a,b,c,d,k='var(--ek)')=>{const t=Math.atan2(d-b,c-a),p=s=>`${c-9*Math.cos(t+s)},${d-9*Math.sin(t+s)}`;return `<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" style="stroke:${k};stroke-width:3"/><polygon points="${c},${d} ${p(-.4)} ${p(.4)}" style="fill:${k}"/>`},
+PP=(x,y)=>`<g class="tl"><circle cx="${x}" cy="${y}" r="6"/><path d="M${x} ${y+6}v16M${x-9} ${y+13}h18M${x} ${y+22}l-6 12M${x} ${y+22}l6 12"/></g>`,
+EP='var(--ep)',EK='var(--ek)',EM='var(--em)',MU='var(--mu)',AC='var(--ac)',
+tP='rgba(14,159,142,.25)',tK='rgba(232,130,12,.25)',tM='rgba(107,79,216,.25)',tU='rgba(93,107,133,.25)',
+BD=(x,y,k)=>O(x,y,11,k?'var(--ok)':'var(--no)')+X(x,y+5,k?'✓':'✗','wt'),
+FL=(a,b,t1,t2,t3)=>{const H=56,ha=H*a/(a+b),hb=H-ha;return X(35,20,'Masuk '+t1)+R(10,28,50,H,EM)+`<polygon points="60,28 150,28 150,${28+ha} 60,${28+ha}" style="fill:${tP}"/><polygon points="60,${28+ha} 150,${28+ha} 150,${28+H} 60,${28+H}" style="fill:${tU}"/>`+R(150,28,36,ha,EP)+R(150,28+ha,36,hb,MU)+X(194,28+ha/2+4,t2,'st','start')+X(194,28+ha+hb/2+4,t3,'st','start')},
+CH=(l,a)=>`<div class="ch"><b>${l}</b>${a.map(x=>`<span>${x}</span>`).join('<i>→</i>')}</div>`,
+CS=(l,a)=>`<div class="ch"><b>${l}</b>${a.map(x=>`<span>${x}</span>`).join('')}</div>`;
+const ILL=[[
+SV(172,L(10,120,350,120)+R(88,40,8,80,MU)+PP(42,86)+AR(54,100,86,100)+BD(60,20,0)+X(60,142,'Diam: W = 0')+PP(158,86)+R(176,92,18,26,AC)+AR(185,88,185,46)+AR(207,88,207,46,EP)+BD(180,20,1)+X(180,142,'Searah: W &gt; 0')+PP(262,86)+R(278,100,12,14,AC)+AR(290,96,290,56)+AR(274,134,344,134,EP)+BD(300,20,0)+X(300,142,'Tegak lurus: W = 0')+X(180,166,'oranye = gaya F, hijau = perpindahan s')),
+SV(232,L(30,100,330,100)+R(60,76,44,24,AC)+AR(82,88,156,36)+L(82,88,156,88,'tl','stroke-dasharray="4 3"')+X(166,34,'F')+X(122,82,'θ')+X(125,118,'F cos θ')+AR(60,138,200,138,EP)+X(130,154,'perpindahan s')+X(180,176,'Tanda usaha menurut sudut θ (dari arah gerak →)')+[0,45,90,135,180].map((a,i)=>{const r=a*Math.PI/180,x=40+70*i;return AR(x,208,x+24*Math.cos(r),208-24*Math.sin(r))+X(x,228,a+'°: '+'++0−−'[i])}).join('')),
+SV(150,L(20,20,100,100)+`<path class="tl" stroke-dasharray="3 3" d="M20 20 Q20 100 100 100"/>`+O(20,20,6,EK)+L(110,20,110,100,'tl','stroke-dasharray="3 3"')+X(60,126,'Δh sama = W sama')+X(60,144,'gaya berat')+R(150,56,40,26,AC)+L(135,82,235,82)+AR(158,44,214,44,EP)+AR(196,94,140,94)+X(185,126,'W = −f · s')+X(185,144,'gaya gesek')+L(255,115,255,25)+L(255,115,350,115)+`<polygon points="255,115 275,45 315,45 335,115" style="fill:${tP}"/>`+X(295,86,'luas = W')+X(246,30,'F','st','end')+X(300,144,'grafik F–s'))
+],[
+SV(150,X(80,22,'laju v')+AR(52,34,108,34,EP)+R(66,48,28,28,EK)+X(80,98,'Ek = 1 bagian')+X(180,58,'laju × 2')+AR(150,68,210,68,MU)+X(180,88,'Ek × 4')+X(281,22,'laju 2v')+AR(240,34,320,34,EP)+R(252,48,28,28,EK)+R(282,48,28,28,EK)+R(252,78,28,28,EK)+R(282,78,28,28,EK)+X(281,124,'Ek = 4 bagian')+X(180,144,'Ek sebanding dengan v²')),
+SV(134,L(20,92,340,92)+R(40,62,30,30,AC)+AR(40,52,76,52,EP)+X(58,44,'v₁')+R(270,62,30,30,AC)+AR(270,52,336,52,EP)+X(303,44,'v₂')+X(170,80,'W = F · s = ΔEk','big')+AR(56,110,285,110)+X(170,128,'gaya F bekerja sejauh s')),
+SV(150,L(10,130,240,130)+R(20,70,70,8,MU)+L(30,78,30,130)+L(80,78,80,130)+R(42,54,24,16,AC)+L(96,70,170,70,'tl','stroke-dasharray="3 3"')+X(100,64,'acuan meja: Ep = 0','st','start')+X(100,124,'acuan lantai: Ep = mgh','st','start')+L(260,125,260,45)+L(260,125,350,125)+`<polygon points="260,125 330,125 330,55" style="fill:${tP}"/>`+X(268,44,'F = kx','st','start')+X(300,144,'luas = Ep pegas'))
+],[
+(()=>{let d='',b='';for(let i=0;i<=30;i++)d+=(i?'L':'M')+(30+10*i)+' '+(25+45*(1-Math.cos(Math.PI*i/30)));
+[0,15,30].forEach(i=>{const x=30+10*i,y=25+45*(1-Math.cos(Math.PI*i/30)),e=(1+Math.cos(Math.PI*i/30))/2;b+=O(x,y-9,8,EK)+R(x-18,132,36,40*e,EP)+R(x-18,132+40*e,36,40*(1-e),EK)});
+return SV(178,`<path class="tl" d="${d}"/>`+b+X(180,126,'Em selalu sama')+R(250,6,10,10,EP)+X(264,15,'Ep','st','start')+R(296,6,10,10,EK)+X(310,15,'Ek','st','start'))})(),
+SV(152,X(20,16,'Em awal 100 J','st','start')+R(20,22,120,16,EM)+X(20,60,'Em akhir 36 J + kalor 64 J','st','start')+R(20,66,43,16,EK)+R(63,66,77,16,MU)+X(20,106,'selisihnya menjadi kalor','st','start')+L(185,130,350,130)+[8,4,2,1].map((h,i)=>R(200+40*i,130-h*10,22,h*10,EP)+X(211+40*i,124-h*10,h+' m')).join('')+X(268,148,'tiap pantulan × ½')),
+SV(104,[['Dua','keadaan'],['Acuan','h = 0'],['Licin /','kasar?'],['Tulis,','hitung']].map((t,i)=>{const x=10+90*i;return R(x,30,70,50,tM)+O(x+35,24,10,EM)+X(x+35,28,i+1,'wt')+X(x+35,52,t[0])+X(x+35,68,t[1])+(i<3?AR(x+72,55,x+88,55,MU):'')}).join(''))
+],[
+SV(140,X(20,26,'A: 10 s','st','start')+R(70,14,60,16,EP)+X(138,27,'daya besar','st','start')+X(20,66,'B: 30 s','st','start')+R(70,54,180,16,EK)+X(258,67,'daya kecil','st','start')+X(180,98,'usaha sama (600 J), waktu beda')+X(180,126,'P = W / t','big')),
+SV(140,FL(400,100,'500 J','berguna 400 J','kalor 100 J')+X(180,128,'η = 400 / 500 = 80%','big'))
+],[
+CS('♻️ Terbarukan',['☀️ matahari','💨 angin','💧 air','🌋 panas bumi','🌿 biomassa'])+CS('⛽ Tak terbarukan',['🛢️ minyak','🔥 batu bara','💨 gas','☢️ uranium'])+CH('🌊 PLTA',['Ep air','Ek air','Ek turbin','⚡'])+CH('🔥 PLTU',['kimia','kalor','Ek uap','Ek turbin','⚡'])+CH('☀️ PLTS',['cahaya','⚡'])+CH('💨 PLTB',['Ek angin','Ek baling-baling','⚡'])+CH('🌋 PLTP',['kalor bumi','Ek uap','Ek turbin','⚡']),
+SV(64,R(30,16,60,18,EP)+R(90,16,240,18,MU)+X(60,52,'berguna')+X(210,52,'kalor tersebar'))+CS('Hemat:',['💡 pakai LED','🔌 cabut charger','🚲 jalan atau sepeda','☀️ cahaya alami','🔧 rawat mesin'])
+],[
+SV(190,[[10,15,tK,'ΔEk','gaya, jarak, laju'],[220,15,tP,'−ΔEp','naik atau turun'],[10,135,tM,'−ΔEp pegas','ada pegas'],[220,135,tU,'ΔEm','ada gesekan']].map(([x,y,c,a,b])=>L(180,95,x+65,y+20)+R(x,y,130,42,c)+X(x+65,y+19,a)+X(x+65,y+34,b)).join('')+O(180,95,28,EM)+X(180,102,'W','wb'))
+]];
+const LI=[
+SV(124,`<path class="tl" d="M25 28 Q25 100 100 100 L345 100"/>`+R(17,10,16,14,EK)+L(12,28,12,100,'tl','stroke-dasharray="3 3"')+X(48,64,'h = 0,4 m','st','start')+L(345,60,345,100)+`<polyline class="tl" points="${[0,1,2,3,4,5,6,7].map(i=>(345-i*8)+','+(i&&i<7?89+(i%2?-7:7):89)).join(' ')}"/>`+R(262,78,26,22,AC)+X(300,56,'x = ?')),
+SV(124,`<path class="tl" d="M30 25 C100 25 130 105 330 105"/>`+O(30,16,8,EK)+O(330,96,8,EK)+L(30,28,30,105,'tl','stroke-dasharray="3 3"')+L(30,105,330,105,'tl','stroke-dasharray="3 3"')+X(42,70,'Δh = 4,6 m','st','start')+X(46,14,'A: 3 m/s','st','start')+X(330,80,'B: v = ?','st','end')),
+SV(130,L(10,120,350,120)+`<path class="tl" stroke-dasharray="3 3" d="M40 40 Q80 160 120 80 Q160 150 200 100"/>`+O(40,40,7,EK)+O(120,80,7,EK)+O(200,100,7,EK)+X(56,36,'8 m','st','start')+X(136,76,'4 m','st','start')+X(214,98,'? m','st','start')),
+SV(120,R(30,50,30,30,EK)+AR(30,38,110,38,EP)+X(70,100,'A: massa m, laju 2v')+R(200,30,60,60,EM)+AR(200,18,240,18,EP)+X(230,108,'B: massa 4m, laju v')+X(150,66,'Ek A : Ek B = ?')),
+SV(144,L(10,96,350,96)+X(60,96,'🚗','em')+AR(40,36,110,36,EP)+X(75,26,'72 km/jam')+L(310,50,310,96)+X(310,44,'berhenti')+AR(130,70,80,70)+X(138,74,'F rem = ?','st','start')+AR(60,118,308,118,MU)+X(185,136,'jarak 50 m')),
+SV(124,`<polygon points="30,30 30,110 170,110" style="fill:${tU}"/>`+L(30,30,170,110)+R(40,18,14,14,AC)+X(22,74,'3 m','st','end')+X(112,66,'6 m','st','start')+X(210,50,'m = 4 kg','st','start')+X(210,70,'dari diam di puncak','st','start')+X(210,90,'tiba di dasar: 6 m/s','st','start')),
+SV(100,X(40,60,'⚙️','em')+X(320,60,'⚡','em')+X(180,28,'2 kW, 3 jam')+X(180,52,'efisiensi 75%')+X(180,76,'Rp1.500 per kWh')+AR(70,50,100,50,MU)+AR(262,50,292,50,MU))];
+const LS={2:SV(100,L(20,86,340,86)+[8,4,2,1].map((h,i)=>R(60+70*i,86-h*8,30,h*8,EP)+X(75+70*i,80-h*8,h+' m')).join('')+X(180,98,'tiap pantulan × ½')),
+5:SV(92,X(20,16,'Em awal 120 J','st','start')+R(20,22,120,16,EM)+X(20,60,'Em akhir 72 J + kalor 48 J','st','start')+R(20,66,72,16,EK)+R(92,66,48,16,MU)),
+6:SV(112,FL(4.5,1.5,'6 kWh','berguna 4,5 kWh','kalor 1,5 kWh')+X(180,106,'6 × 1.500 = Rp9.000','big'))};
+LQ.forEach((x,i)=>{x.ill=LI[i];x.sol=LS[i]});
+const FT=['0.1','4.0'],NF=['5.2'];
+function fold(h,mi,st){const k=mi+'.'+st,d=document.createElement('div'),x=document.createElement('details');d.innerHTML=h;
+if(!NF.includes(k)){const re=FT.includes(k)?/^(P|UL|OL|TABLE)$/:/^(P|UL|OL)$/;[...d.children].filter(n=>re.test(n.tagName)).forEach(n=>x.append(n))}
+const i=ILL[mi]&&ILL[mi][st];if(i){if(d.firstElementChild)d.firstElementChild.insertAdjacentHTML('afterend',i);else d.insertAdjacentHTML('afterbegin',i)}
+if(x.children.length){x.insertAdjacentHTML('afterbegin','<summary>Baca penjelasan</summary>');d.append(x)}return d.innerHTML}
+function quiz(items,cb){let n=0,ok=0;const box=document.createElement('div');
+items.forEach((it,i)=>{const c=document.createElement('div');c.className='q';
+c.innerHTML=`<p><b>${i+1}.</b> ${it.q}</p>${it.ill||''}<div class="o">${it.o.map((o,j)=>`<button data-j="${j}">${String.fromCharCode(65+j)}. ${o}</button>`).join('')}</div><details class="pb"><summary>Lihat pembahasan</summary>${it.sol||''}<ol class="stp">${it.e.split('. ').map(s=>`<li><span>${s.replace(/\.$/,'')}</span></li>`).join('')}</ol>${it.sim?G(it.sim[0],it.sim[1],'Lihat simulasinya'):''}</details>`;
+c.querySelector('.o').onclick=e=>{const b=e.target.closest('button');if(!b||c.dataset.d)return;c.dataset.d=1;const j=+b.dataset.j,r=j==it.a;ok+=r;n++;
+c.querySelectorAll('.o button').forEach((x,k)=>{x.disabled=true;if(k==it.a)x.classList.add('ok');else if(k==j)x.classList.add('no')});
+const d=c.querySelector('.pb');d.open=true;d.querySelector('summary').textContent=(r?'✓ Tepat. ':'✗ Belum tepat. ')+'Pembahasan';cb&&cb(ok,n)};box.append(c)});return box}
+function vMisi(){const m=M[S.mi],T=m.st.length+(m.q?1:0),q=m.q&&S.st==T-1;
+$('#m').innerHTML=`<div class="path">${M.map((x,i)=>`<button data-i="${i}" class="${i==S.mi?'cur':''} ${D.m[i]?'dn':''}"><i>${D.m[i]?'✓':i+1}</i>${x.t}</button>`).join('')}</div><section class="card"><p class="sub">Misi ${S.mi+1} dari ${M.length}: ${m.s}</p><div class="dots">${Array.from({length:T},(_,i)=>`<u class="${i<=S.st?'on':''}"></u>`).join('')}</div><div id="bd"></div><div class="nb"><button id="pv" ${S.st?'':'disabled'}>Kembali</button><button id="nx" class="pri" ${q&&!D.m[S.mi]?'disabled':''}>${S.st<T-1?'Lanjut':S.mi<M.length-1?'Selesai, misi berikutnya':'Selesai, ke Latihan'}</button></div></section>`;
+if(q){$('#bd').innerHTML='<h3>Tes singkat</h3>';$('#bd').append(quiz(m.q,(ok,n)=>{if(n==m.q.length)$('#nx').disabled=false}))}else $('#bd').innerHTML=fold(m.st[S.st],S.mi,S.st);
+$('#pv').onclick=()=>{S.st--;draw()};
+$('#nx').onclick=()=>{if(S.st<T-1){S.st++;draw();return}D.m[S.mi]=1;sv();if(S.mi<M.length-1){S.mi++;S.st=0}else S.tab='latihan';draw()}}
+function vWahana(){const sm=SIMS[S.sim],v={};sm.c.forEach(c=>v[c[0]]=c[5]);Object.assign(v,S.pre||{});S.pre=null;
+$('#m').innerHTML=`<div class="path">${SIMS.map((x,i)=>`<button data-s="${i}" class="${i==S.sim?'cur':''}">${x.n}</button>`).join('')}</div><section class="card"><p class="sub">${sm.d.replace('E_m','Em')}</p><div id="sv"></div><div class="ctl">${sm.c.map(c=>`<label>${c[1]} <b id="v_${c[0]}"></b><input type="range" data-k="${c[0]}" min="${c[2]}" max="${c[3]}" step="${c[4]}" value="${v[c[0]]}"></label>`).join('')}</div><div class="out" id="out"></div></section>`;
+const ins=[...document.querySelectorAll('#m input')],up=()=>{ins.forEach(i=>{v[i.dataset.k]=+i.value;$('#v_'+i.dataset.k).textContent=f(+i.value,2)});const r=sm.r(v);$('#sv').innerHTML=r.svg;$('#out').innerHTML=r.out};
+ins.forEach(i=>i.oninput=up);up()}
+function vLat(){$('#m').innerHTML=`<section class="card"><p class="sub">Latihan dengan g = 10 m/s². Pembahasan bisa dibuka kapan saja, tanpa perlu menjawab dulu.</p><p class="sc" id="sc"></p><button class="tg" id="ao">Buka semua pembahasan</button><h3>Soal pilihan</h3><div id="l1"></div><h3>Benar atau salah?</h3><div id="l2"></div></section>`;
+let a=0,b=0;const up=()=>$('#sc').textContent=`Benar ${a+b} dari ${LQ.length+TF.length} soal`;up();
+$('#l1').append(quiz(LQ,ok=>{a=ok;up()}));$('#l2').append(quiz(TF,ok=>{b=ok;up()}));let o=0;$('#ao').onclick=e=>{o=!o;document.querySelectorAll('.pb').forEach(d=>d.open=o);e.target.textContent=o?'Tutup semua pembahasan':'Buka semua pembahasan'}}
+function draw(){document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==S.tab));
+$('#pr').textContent='⭐ '+Object.keys(D.m).length+'/'+M.length;({misi:vMisi,wahana:vWahana,latihan:vLat})[S.tab]();scrollTo(0,0)}
+$('nav').onclick=e=>{const b=e.target.closest('button');if(b){S.tab=b.dataset.t;draw()}};
+$('#m').onclick=e=>{const t=e.target,p=t.closest('.path button'),g=t.closest('.go');
+if(p&&p.dataset.i!=null){S.mi=+p.dataset.i;S.st=0;draw()}else if(p&&p.dataset.s!=null){S.sim=+p.dataset.s;draw()}
+if(g){S.tab='wahana';S.sim=+g.dataset.sim;S.pre=JSON.parse(g.dataset.pre);draw()}};
+draw();
+</script></body></html>

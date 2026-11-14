@@ -1,0 +1,19 @@
+{
+  "name": "jelajah-fisika-usaha-energi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jelajah Fisika: misi, wahana, dan latihan Usaha dan Energi",
+  "type": "module",
+  "scripts": {
+    "build": "echo \"Situs statis: tidak perlu build. Folder yang dipublikasikan: public\"",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:pages": "wrangler pages deploy public --project-name=jelajah-fisika-usaha-energi --branch=main --commit-dirty=true"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
