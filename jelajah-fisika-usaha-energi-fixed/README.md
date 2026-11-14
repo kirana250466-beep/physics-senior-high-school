@@ -1,6 +1,17 @@
-# Jelajah Fisika: Usaha dan Energi
+# Jelajah Fisika: Usaha dan Energi + Hukum Newton
 
 Situs statis (HTML + CSS + JS dalam satu file). Tidak ada langkah build.
+
+## Materi
+
+Dua topik, dipilih lewat kartu di bagian atas halaman. Tiap topik punya Misi (perjalanan materi + tes singkat), Wahana (simulasi), dan Latihan (soal + pembahasan).
+
+| Topik | Misi | Wahana | Kunci progres (localStorage) |
+|---|---|---|---|
+| Usaha dan Energi | 6 | 3 | `ue1` |
+| Hukum Newton tentang Gerak | 9 | 5 | `nw1` |
+
+Menambah topik baru: buat data `M` (misi), `SIMS` (wahana), `LQ` dan `TF` (latihan), `ILL` (ilustrasi), lalu daftarkan sebagai satu objek baru di array `TOP` dan tambahkan satu kunci di `DK` pada `public/index.html`.
 
 ## Struktur
 
