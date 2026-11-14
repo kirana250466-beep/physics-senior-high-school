@@ -2,7 +2,7 @@
   "name": "jelajah-fisika-usaha-energi",
   "version": "1.0.0",
   "private": true,
-  "description": "Jelajah Fisika: misi, wahana, dan latihan Usaha dan Energi",
+  "description": "Jelajah Fisika: misi, wahana, dan latihan Usaha dan Energi serta Hukum Newton tentang Gerak",
   "type": "module",
   "scripts": {
     "build": "echo \"Situs statis: tidak perlu build. Folder yang dipublikasikan: public\"",
