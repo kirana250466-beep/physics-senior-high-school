@@ -1,8 +1,8 @@
 <!doctype html><html lang="id"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Jelajah Fisika: misi, wahana simulasi, dan latihan soal Usaha dan Energi serta Hukum Newton tentang Gerak.">
+<meta name="description" content="Jelajah Fisika: misi, wahana simulasi, dan latihan soal Usaha dan Energi, Hukum Newton, serta Gerak Rotasi.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<title>Jelajah Fisika · Usaha, Energi, dan Hukum Newton</title>
+<title>Jelajah Fisika · Usaha Energi, Hukum Newton, Gerak Rotasi</title>
 <style>
 *{box-sizing:border-box}
 :root{--bg:#f3f6fa;--cd:#fff;--tx:#14213d;--mu:#5d6b85;--ln:#dbe3ef;--ac:#2457d6;--ep:#0e9f8e;--ek:#e8820c;--em:#6b4fd8;--ok:#1b8a46;--no:#c62f2f;--hd:#14213d;color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -52,7 +52,7 @@ details{margin:10px 0}summary{cursor:pointer;font-weight:700;color:var(--ac);pad
 .pb{border:1px solid var(--ln);border-radius:10px;padding:2px 12px;background:var(--bg)}
 .stp{counter-reset:s;list-style:none;padding:0;margin:6px 0}.stp li{counter-increment:s;display:flex;gap:10px;align-items:flex-start;margin:8px 0;font-size:15px}.stp li:before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;background:var(--ac);color:var(--cd);display:grid;place-items:center;font-size:12px;font-weight:700}
 .tg{border:0;border-radius:10px;padding:8px 14px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;background:rgba(36,87,214,.14);color:var(--ac)}
-.tp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 12px}
+.tp{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:0 0 12px}
 .tp button{display:flex;align-items:center;gap:8px;text-align:left;border:1px solid var(--ln);background:var(--cd);color:var(--tx);border-radius:12px;padding:8px 10px;font:inherit;cursor:pointer}
 .tp button.on{border-color:var(--ac);box-shadow:0 0 0 2px var(--ac)}
 .tp .ti{font-size:24px;line-height:1}.tp b{display:block;font-size:14px;line-height:1.25}.tp small{color:var(--mu);font-size:12px}
@@ -66,7 +66,7 @@ details{margin:10px 0}summary{cursor:pointer;font-weight:700;color:var(--ac);pad
 <main><div id="tp" class="tp"></div><div id="m"></div></main>
 <script>
 const $=s=>document.querySelector(s),f=(x,d=1)=>(+x.toFixed(d)).toLocaleString('id-ID');
-const DK=['ue1','nw1'],DD=DK.map(k=>{let d={m:{}};try{d=JSON.parse(localStorage.getItem(k))||d}catch(e){}if(!d.m)d.m={};return d});
+const DK=['ue1','nw1','rt1'],DD=DK.map(k=>{let d={m:{}};try{d=JSON.parse(localStorage.getItem(k))||d}catch(e){}if(!d.m)d.m={};return d});
 const sv=()=>{try{localStorage.setItem(DK[S.top],JSON.stringify(DD[S.top]))}catch(e){}};
 let S={top:0,tab:'misi',mi:0,st:0,sim:0,pre:null};
 const CT=()=>TOP[S.top],D=()=>DD[S.top];
@@ -355,7 +355,99 @@ const NLS={0:SV(100,BAR(60,10,120,EK,'F','30 N')+BAR(60,34,40,CF,'f','10 N')+BAR
 6:SV(100,R(40,12,100,22,CW)+X(90,27,'w = 5.000','wt')+R(140,12,50,22,EK)+X(165,27,'2.500','wt')+XT(90,50,'m g')+XT(165,50,'m v²/R')+R(40,62,150,22,CN)+X(115,77,'N = 7.500 N','wt')),
 7:SV(104,[['Kritis di C','v² = gR'],['Tinggi C','= 2R'],['Energi A→C','10 = 2,5 R'],['Hasil','C = 8 m']].map((t,i)=>{const x=10+88*i;return R(x,30,76,58,tM)+O(x+38,24,10,EM)+X(x+38,28,i+1,'wt')+XT(x+38,54,t[0])+XT(x+38,72,t[1])+(i<3?AS(x+77,59,x+87,59,MU,2):'')}).join(''))};
 NLQ.forEach((x,i)=>{x.ill=NLI[i];x.sol=NLS[i]});
-const TOP=[{name:'Usaha dan Energi',ic:'⚡',M,SIMS,LQ,TF,ILL,FT,NF},{name:'Hukum Newton',ic:'🍎',M:NM,SIMS:NSIMS,LQ:NLQ,TF:NTF,ILL:NILL,FT:['4.1'],NF:['8.2']}];
+/* ===== TOPIK 3: GERAK ROTASI ===== */
+const GR='rgba(93,107,133,.55)',
+DOOR=(x,fx,t1,t2,c)=>R(x,6,172,130,c)+XB(x+86,24,t1,'middle',12)+O(x+16,72,6,'var(--tx)')+R(x+16,67,140,10,GR)+AS(x+fx,38,x+fx,64,EK,3)+XC(x+fx+7,52,'F',EK,'start')+AS(x+16,96,x+fx,96,EP,2)+XC(x+(16+fx)/2,112,'d',EP)+XT(x+86,128,t2),
+DB=(x,r,t1,t2,c,w,k)=>R(x,6,172,150,c)+XB(x+86,24,t1,'middle',12)+L(x+86-r-9,66,x+86+r+9,66)+O(x+86-r,66,9,EK)+O(x+86+r,66,9,EK)+O(x+86,66,4,'var(--tx)')+XT(x+86,96,'sumbu')+R(x+14,108,w,12,k)+XT(x+86,142,t2),
+SK=(x,a,t1,t2,z,c)=>R(x,6,172,134,c)+XB(x+86,24,t1,'middle',12)+O(x+86,48,7,'var(--tx)')+L(x+86,55,x+86,90)+L(x+86-a,66,x+86+a,66)+O(x+86-a,66,5,EK)+O(x+86+a,66,5,EK)+L(x+86,90,x+79,114)+L(x+86,90,x+93,114)+XC(x+22,48,'↻',EP,'middle',z)+XT(x+86,130,t2),
+HB=(x,y,a,b)=>R(x,y,150,20,tU)+XB(x+8,y+14,a,'start',12)+(b?XT(x+144,y+14,b,'st','end'):'');
+const RM=[
+{t:'Torsi',s:'Mengapa gagang pintu jauh dari engsel?',st:[
+`<h3>Gaya sama, efek putar beda</h3><div class="key"><b>Torsi (τ)</b> mengukur seberapa efektif gaya memutar benda. Yang menentukan bukan hanya besar gaya, tetapi juga <b>jarak dari sumbu</b> ke garis kerja gaya (lengan gaya, d).</div><div class="f">τ = F · d</div><p>Bab sebelumnya menganggap benda sebuah titik. Benda nyata punya ukuran sehingga bisa berputar sambil bergerak: roda, bola menggelinding, Bumi berotasi. Bab ini penuh "kembaran" gerak lurus: gaya → torsi, massa → momen inersia, momentum → momentum sudut.</p><div class="ex"><b>Contoh.</b> Kunci pas 0,3 m ditekan 40 N tegak lurus: τ = 40 × 0,3 = <b>12 N·m</b>.</div>`,
+`<h3>Gaya miring terhadap lengan</h3><div class="f">τ = r F sin θ</div><div class="key">Hanya komponen gaya yang <b>tegak lurus</b> lengan (F sin θ) yang memutar. Komponen searah lengan (F cos θ) tidak memutar.</div><div class="tip"><b>Ingat.</b> Satuan torsi N·m tampak sama dengan joule, tetapi torsi adalah vektor efek putar sedangkan usaha adalah skalar. Karena itu ditulis N·m.</div><div class="ex"><b>Contoh.</b> Gaya 40 N pada kunci pas tadi dimiringkan 30°: τ = 0,3 × 40 × sin 30° = <b>6 N·m</b>, tinggal setengah.</div>${G(0,{F:40,r:.3,t:30})}`],
+q:[{q:'Pintu didorong dengan gaya yang sama. Torsi terbesar diperoleh jika gaya bekerja ...',o:['dekat engsel','di tengah pintu','di gagang, jauh dari engsel','tepat di engsel'],a:2,e:'τ = F d. Makin jauh dari sumbu, lengan gaya makin besar sehingga torsi makin besar.'},
+{q:'Gaya 20 N bekerja tegak lurus pada lengan 0,5 m dari sumbu. Torsinya ...',o:['10 N·m','20 N·m','40 N·m','10 J'],a:0,e:'τ = 20 × 0,5 = 10 N·m. Satuan torsi N·m, bukan joule.'}]},
+{t:'Momen inersia',s:'Massa versi rotasi: sebaran itu penting',st:[
+`<h3>Kelembaman putar</h3><div class="key"><b>Momen inersia (I)</b> menyatakan seberapa sulit benda diubah putarannya. Bergantung pada massa <b>dan sebarannya</b>: makin jauh massa dari sumbu, makin besar I.</div><div class="f">I = Σ m r²</div><p>Asal rumus: partikel m pada jari-jari r dikenai gaya tangensial. F = m a dengan a = α r, sehingga τ = F r = (m r²) α. Pada benda tegar semua partikel punya α sama, jadi τ total = (Σ m r²) α, dan suku dalam kurung itulah I.</p><div class="tip">Dua benda bermassa total sama bisa punya I berbeda karena sebaran jaraknya berbeda.</div>`,
+`<h3>Rumus baku bentuk benda</h3><div class="key">Bentuknya sudah dihitung. Tinggal hafal pecahan di depan MR²: makin ke tepi massanya, makin besar pecahannya.</div><div class="f">⅖ · ⅔ · ½ · 1 · 1/12</div><div class="ex"><b>Contoh.</b> Silinder pejal 4 kg, R = 0,5 m, sumbu di pusat: I = ½ × 4 × 0,5² = <b>0,5 kg·m²</b>.</div>`],
+q:[{q:'Dua cakram bermassa sama. Pada A massa terkumpul dekat sumbu, pada B tersebar jauh dari sumbu. Yang lebih sulit diputar ...',o:['A','B','Sama sulit','Tidak dapat ditentukan'],a:1,e:'Makin jauh sebaran massa dari sumbu, I makin besar. Jadi B lebih sulit diputar.'},
+{q:'Massa dan jari-jari sama, momen inersia terbesar dimiliki ...',o:['bola pejal','silinder pejal','bola berongga','cincin tipis'],a:3,e:'Pecahan di depan MR² adalah ⅖, ½, ⅔, dan 1. Cincin terbesar karena seluruh massa ada di tepi.'}]},
+{t:'Hukum II rotasi',s:'Στ = Iα, kembaran ΣF = ma',st:[
+`<h3>Torsi total memberi percepatan sudut</h3><div class="f">Στ = I α</div><div class="key">Torsi berperan seperti gaya, momen inersia seperti massa, percepatan sudut α (rad/s²) seperti percepatan a. Torsi yang sama pada I besar menghasilkan α kecil.</div>`,
+`<h3>Contoh: cakram diputar gaya di tepi</h3><div class="ex"><b>Soal.</b> Cakram pejal 4 kg, R = 0,5 m, dikenai gaya 10 N tegak lurus di tepi. Berapa α?</div><div class="key">Tiga langkah: hitung τ, hitung I sesuai bentuk, lalu α = τ / I.</div>${G(1,{s:1,m:4,R:.5,F:10})}`],
+q:[{q:'Hukum II Newton untuk rotasi dituliskan ...',o:['Στ = I α','Στ = m a','ΣF = I α','Στ = I ω'],a:0,e:'Torsi total sama dengan momen inersia dikali percepatan sudut.'},
+{q:'Torsi total dijadikan dua kali, momen inersia tetap. Percepatan sudutnya ...',o:['setengah kali','tetap','dua kali','empat kali'],a:2,e:'α = Στ / I, jadi sebanding dengan torsi.'}]},
+{t:'Momentum sudut',s:'Penari es dan kekekalan L',st:[
+`<h3>Momentum sudut dan kekekalannya</h3><div class="f">L = I ω</div><div class="key"><b>Momentum sudut</b> adalah kembaran p = m v (satuan kg·m²/s). Jika <b>tidak ada torsi luar</b>, L tetap: bila I berubah, ω menyesuaikan agar hasil kalinya tetap.</div><div class="f">I₁ ω₁ = I₂ ω₂</div>`,
+`<h3>Persegi panjang yang luasnya tetap</h3><div class="key">Anggap I sebagai lebar dan ω sebagai tinggi: luasnya L. Saat penari merapatkan tangan, lebar menyusut sehingga tinggi harus naik.</div><div class="ex"><b>Contoh.</b> I = 4 kg·m² dan ω = 2 rad/s. Tangan merapat sampai I = 1 kg·m²: ω = (4 × 2) / 1 = <b>8 rad/s</b>.</div>${G(2,{r:.8,w:2})}`],
+q:[{q:'Penari es merapatkan kedua tangannya saat berputar. Yang terjadi ...',o:['I mengecil, ω membesar','I membesar, ω mengecil','I dan ω mengecil','I dan ω membesar'],a:0,e:'Tanpa torsi luar L = I ω tetap. I mengecil sehingga ω harus membesar.'},
+{q:'Tanpa torsi luar, I berubah dari 6 menjadi 2 kg·m². ω awal 3 rad/s menjadi ...',o:['1 rad/s','6 rad/s','9 rad/s','18 rad/s'],a:2,e:'6 × 3 = 2 × ω₂, jadi ω₂ = 9 rad/s.'}]},
+{t:'Menggelinding',s:'Translasi dan rotasi sekaligus',st:[
+`<h3>Menggelinding tanpa slip</h3><div class="key">Titik kontak dengan lantai harus <b>diam sesaat</b>: kecepatan maju pusat (v) dibatalkan kecepatan putar di titik itu (ω R, arahnya mundur).</div><div class="f">v = ω R</div><div class="f">E<sub>k rot</sub> = ½ I ω²</div>`,
+`<h3>Energi kinetik total</h3><div class="f">E<sub>k</sub> = ½ m v² + ½ I ω²</div><div class="key"><b>Kesalahan paling umum:</b> lupa menambah energi rotasi. Benda menggelinding punya E<sub>k</sub> lebih besar daripada benda meluncur pada laju sama.</div><div class="ex"><b>Contoh.</b> Bola pejal 1 kg menggelinding 10 m/s. Dengan I = ⅖ m R² dan ω = v/R, jari-jari saling meniadakan: E<sub>k rot</sub> = ⅕ m v² = <b>20 J</b>. Translasi 50 J, total 70 J, rasio rotasi : total = <b>2 : 7</b> untuk setiap bola pejal.</div>${G(3,{t:30,p:.6})}`],
+q:[{q:'Benda menggelinding tanpa slip. Hubungan laju pusat dan kecepatan sudut ...',o:['v = ω R','v = ω / R','v = ω R²','v = 2 ω R'],a:0,e:'Titik kontak diam sesaat, sehingga v = ω R.'},
+{q:'Energi kinetik total benda yang menggelinding ...',o:['hanya ½ m v²','hanya ½ I ω²','½ m v² + ½ I ω²','½ m v² − ½ I ω²'],a:2,e:'Benda bergerak maju sekaligus berputar, jadi energinya penjumlahan translasi dan rotasi.'}]},
+{t:'Jurus kilat',s:'Peta analogi dan strategi soal',st:[
+`<h3>Kembaran translasi dan rotasi</h3><div class="key">Setiap rumus rotasi meniru gerak lurus: ganti m, F, v, a, p dengan I, τ, ω, α, L.</div>`,
+`<h3>Strategi 5 langkah soal rotasi</h3><div class="tip">Soal menggelinding? Hampir pasti ujungnya v = ω R dan energi translasi + rotasi.</div>`,
+`<h3>Peta rumus cepat</h3><table><tr><td>Torsi<td>τ = r F sin θ<tr><td>Momen inersia<td>I = Σ m r²<tr><td>Hukum II rotasi<td>Στ = I α<tr><td>Momentum sudut<td>L = I ω; kekal: I₁ω₁ = I₂ω₂<tr><td>Energi rotasi<td>½ I ω²<tr><td>Menggelinding<td>v = ω R; E<sub>k</sub> = ½mv² + ½Iω²; bola pejal: E<sub>k rot</sub> = ⅕ m v² (2/7 total)</table><div class="tip">Tiga bab dinamika saling terhubung: Hukum II Newton → impuls-momentum, Hukum III → kekekalan momentum, rumus rotasi → kembaran rumus translasi.</div>`]}];
+const RILL=[[
+SV(138,DOOR(6,36,'F dekat engsel','sulit berputar',tU)+DOOR(182,140,'F jauh dari engsel','mudah berputar',tP)),
+SV(150,O(40,118,6,'var(--tx)')+R(40,113,150,10,GR)+XT(40,140,'sumbu')+XT(115,140,'lengan r')+AS(190,118,230,61,EK,3)+XC(238,58,'F',EK,'start')+AS(190,118,190,61,CF,2.5)+XC(184,86,'F sin θ',CF,'end',11)+AS(190,118,240,118,MU,2.5)+XT(214,136,'F cos θ')+`<path class="tl" d="M214 118 A24 24 0 0 0 203.8 98.3"/>`+XT(224,106,'θ','st','start')+R(268,14,86,112,tM)+XB(311,36,'θ = 90°','middle',12)+XT(311,52,'τ maksimum')+XB(311,80,'θ = 0°','middle',12)+XT(311,96,'τ = 0')+XT(311,114,'searah lengan'))
+],[
+SV(162,DB(6,18,'Massa dekat sumbu','I kecil',tP,20,EP)+DB(182,66,'Massa jauh dari sumbu','I besar',tK,140,EK)),
+SV(162,['Bola|pejal|⅖ MR²|.4','Bola|berongga|⅔ MR²|.67','Silinder|pejal|½ MR²|.5','Cincin|tipis|MR²|1','Batang|tengah|1/12 ML²|0'].map((s,i)=>{const[a,b,fm,k]=s.split('|'),x=4+70*i,cx=x+33,sh=[O(cx,50,22,AC),`<circle cx="${cx}" cy="50" r="20" style="fill:none;stroke:${AC};stroke-width:6"/>`,O(cx,50,22,EP),`<circle cx="${cx}" cy="50" r="19" style="fill:none;stroke:${EK};stroke-width:8"/>`,R(cx-4,20,8,60,EM)][i];return R(x,6,66,150,tU)+sh+O(cx,50,3,'var(--cd)')+XT(cx,98,a)+XT(cx,112,b)+XB(cx,132,fm,'middle',11)+(+k?R(x+8,140,50*k,8,EK):'')}).join(''))
+],[
+SV(190,R(6,6,172,124,tU)+XB(92,24,'Translasi')+L(14,100,170,100)+BK(56,62,44,38,AC)+AS(18,81,54,81,EK,3)+XC(34,74,'F',EK)+AS(102,81,150,81,EP,3)+XC(126,74,'a',EP)+XB(92,120,'ΣF = m a','middle',13)+R(182,6,172,124,tK)+XB(268,24,'Rotasi')+O(268,70,32,AC)+O(268,70,4,'var(--tx)')+AS(300,92,300,50,EK,3)+XC(308,60,'F',EK,'start')+`<path d="M240 48 A36 36 0 0 1 286 40" style="stroke:var(--ep);stroke-width:3;fill:none"/>`+XC(236,40,'α',EP,'end')+XB(268,120,'Στ = I α','middle',13)+CD(6,138,112,46,tM,'F ⇄ τ','gaya ⇄ torsi')+CD(124,138,112,46,tM,'m ⇄ I','massa ⇄ inersia')+CD(242,138,112,46,tM,'a ⇄ α','perc. ⇄ perc. sudut')),
+SV(190,O(66,96,44,AC)+O(66,96,4,'var(--tx)')+X(66,128,'4 kg','wt')+L(66,96,110,96,'tl','stroke-dasharray="3 3"')+XT(88,90,'R')+XT(88,112,'0,5 m')+AS(110,96,110,46,EK,3)+XC(118,60,'10 N',EK,'start')+CD(126,8,228,52,tM,'τ = F R = 5 N·m','10 × 0,5',1)+CD(126,68,228,52,tM,'I = ½ m R² = 0,5 kg·m²','½ × 4 × 0,5²',2)+CD(126,128,228,52,tK,'α = τ / I = 10 rad/s²','5 ÷ 0,5',3))
+],[
+SV(190,SK(6,40,'Tangan terentang','I besar, ω kecil',20,tK)+SK(182,10,'Tangan merapat','I kecil, ω besar',38,tP)+R(6,148,348,36,tM)+XB(180,172,'I × ω = L tetap (tanpa torsi luar)','middle',14)),
+SV(158,XT(180,16,'luas = I × ω = L, sama besar')+R(20,92,130,26,EP)+X(85,110,'ω kecil','wt')+XT(85,136,'I besar')+XB(185,100,'=','middle',26)+R(220,18,32,100,EK)+X(236,72,'ω','wt')+XT(236,136,'I kecil')+XT(262,70,'ω besar','st','start'))
+],[
+SV(172,L(14,150,206,150)+`<circle cx="110" cy="100" r="50" class="tl"/><g class="spin" style="transform-origin:110px 100px">${L(110,100,110,54)+L(110,100,150,123)+L(110,100,70,123)}</g>`+O(110,100,4,'var(--tx)')+AS(110,100,150,100,EP,3)+XC(156,104,'v',EP,'start')+AS(110,50,190,50,EP,3)+XC(196,54,'2v',EP,'start')+O(110,150,6,CW)+XT(110,166,'v = 0 sesaat')+R(226,14,128,60,tP)+XB(290,38,'Titik kontak','middle',12)+XT(290,56,'diam sesaat')+R(226,84,128,70,tM)+XB(290,112,'v = ω R','middle',18)+XT(290,136,'tanpa slip')),
+SV(150,XT(10,18,'Meluncur saja (tanpa berputar)','st','start')+R(10,24,150,20,EK)+XT(168,39,'50 J','st','start')+XT(10,70,'Menggelinding, bola pejal','st','start')+R(10,76,150,20,EK)+R(160,76,60,20,EP)+XT(228,91,'70 J','st','start')+X(85,90,'translasi 50','wt')+X(190,90,'rot 20','wt')+R(10,112,344,30,tM)+XB(182,132,'rotasi : total = 20 : 70 = 2 : 7','middle',13))
+],[
+(()=>{const T=[['m','I','massa','inersia'],['F','τ','gaya','torsi'],['v','ω','kecepatan','kec. sudut'],['a','α','percepatan','perc. sudut'],['ΣF = m a','Στ = I α'],['p = m v','L = I ω'],['½ m v²','½ I ω²']];return SV(206,R(6,6,150,22,tK)+XB(81,22,'Translasi')+R(204,6,150,22,tM)+XB(279,22,'Rotasi')+T.map((t,i)=>{const y=36+24*i;return HB(6,y,t[0],t[2])+X(180,y+15,'⇄')+HB(204,y,t[1],t[3])}).join(''))})(),
+SV(222,[['Kenali bentuk benda','bola, silinder, cincin, batang → rumus I'],['Menggelinding tanpa slip?','pakai v = ω R'],['Soal energi?','Ek total = translasi + rotasi'],['Gaya atau percepatan sudut?','Στ = I α, analog ΣF = m a'],['Bentuk benda berubah?','I₁ ω₁ = I₂ ω₂ (tanpa torsi luar)']].map((t,i)=>CD(8,6+43*i,344,37,i%2?tK:tM,t[0],t[1],i+1)).join('')),
+(()=>{const B=[[8,8,'Torsi','τ = r F sin θ',tM],[228,8,'Momen inersia','I = Σ m r²',tM],[8,96,'Hukum II','Στ = I α',tM],[228,96,'Momentum sudut','L = I ω (kekal)',tK],[8,184,'Energi rotasi','½ I ω²',tP],[228,184,'Menggelinding','v = ω R',tP]];return SV(236,B.map(b=>L(180,118,b[0]<100?132:228,b[1]+22)).join('')+O(180,118,30,EM)+X(180,130,'🌀','em')+B.map(b=>R(b[0],b[1],124,44,b[4])+XB(b[0]+8,b[1]+19,b[2],'start',12)+XT(b[0]+8,b[1]+36,b[3],'st','start')).join(''))})()
+]];
+const RSIMS=[
+{n:'Torsi',d:'Atur gaya, jarak dari sumbu, dan sudut dorong. Hanya komponen F sin θ yang memutar.',
+c:[['F','Gaya F (N)',10,100,5,40],['r','Jarak dari sumbu r (m)',.1,1,.05,.5],['t','Sudut θ (derajat)',10,90,1,90]],
+r:v=>{const a=v.t*Math.PI/180,px=30+v.r*220,n=20+v.F*.6,ex=px+n*Math.cos(a),ey=104-n*Math.sin(a);
+return{svg:`<svg viewBox="0 0 360 134">${R(30,99,v.r*220,10,GR)}${O(30,104,7,'var(--tx)')}${AS(px,104,ex,ey,EK,3)}${v.t<90?DL(px,104,ex,104)+DL(ex,104,ex,ey):''}${XT(30,128,'sumbu','st','start')}${XT(px,128,'r = '+f(v.r,2)+' m')}</svg>`,
+out:`F sin θ = ${f(v.F*Math.sin(a))} N<p>τ = r F sin θ = <b>${f(v.r*v.F*Math.sin(a))} N·m</b></p>`}}},
+{n:'Percepatan sudut',d:'Pilih bentuk benda, lalu atur gaya di tepinya. Bentuk bermassa di tepi (cincin) paling sulit dipercepat putarannya.',
+c:[['s','Bentuk benda',0,3,1,1,['Bola pejal','Cakram','Bola berongga','Cincin']],['m','Massa m (kg)',1,10,.5,4],['R','Jari-jari R (m)',.1,1,.05,.5],['F','Gaya di tepi F (N)',1,50,1,10]],
+r:v=>{const k=[.4,.5,.667,1][v.s],I=k*v.m*v.R*v.R,T=v.F*v.R,a=T/I,q=24+v.R*50,d=Math.max(.5,Math.min(8,12/a)),
+sh=v.s<2?O(180,84,q,v.s?EP:AC):`<circle cx="180" cy="84" r="${q-4}" style="fill:none;stroke:${v.s==2?AC:EK};stroke-width:${v.s==2?5:12}"/>`;
+return{svg:`<svg viewBox="0 0 360 168">${sh}<g class="spin" style="animation-duration:${d}s;transform-origin:180px 84px">${L(180,84,180,84-q+4,'tl','style="stroke:var(--cd);stroke-width:3"')}</g>${O(180,84,4,'var(--tx)')}${AS(180+q,84,180+q,36,EK,3)}${XC(188+q,50,'F',EK,'start')}</svg>`,
+out:`τ = F R = ${f(T)} N·m &nbsp; I = ${f(I,2)} kg·m²<p>α = τ / I = <b>${f(a)} rad/s²</b></p>`}}},
+{n:'Penari es',d:'Rentangkan atau rapatkan tangan. I berubah, ω menyesuaikan, dan L = I ω tetap.',
+c:[['r','Tangan dari badan r (m)',.1,.8,.05,.8],['w','ω awal, tangan terentang (rad/s)',1,5,.5,2]],
+r:v=>{const I=x=>1+6*x*x,L0=I(.8)*v.w,w=L0/I(v.r),p=v.r*100;
+return{svg:`<svg viewBox="0 0 360 168"><g class="spin" style="animation-duration:${2*Math.PI/w}s;transform-origin:180px 84px">${L(180-p,84,180+p,84)}${O(180-p,84,9,EK)}${O(180+p,84,9,EK)}${O(180,84,14,AC)}${L(180,84,180,72,'tl','style="stroke:var(--cd);stroke-width:3"')}</g>${XT(180,162,'tampak atas: bola oranye = tangan')}</svg>`,
+out:`I = ${f(I(v.r),2)} kg·m² &nbsp; ω = <b>${f(w,1)} rad/s</b><p>L = I ω = ${f(L0,1)} kg·m²/s (tetap)</p>`}}},
+{n:'Balapan lereng',d:'Empat benda dilepas bersamaan dari lereng yang sama. Massa dan jari-jari tidak ikut menentukan, hanya sebaran massa.',
+c:[['t','Sudut lereng θ (derajat)',10,50,1,30],['p','Waktu (0 mulai, 1 semua tiba)',0,1,.01,0]],
+r:v=>{const K=[.4,.5,.667,1],N=['Bola pejal','Silinder','Bola rongga','Cincin'],sn=Math.sin(v.t*Math.PI/180),Tm=Math.sqrt(12/(10*sn/2));let s='',tb='';
+K.forEach((k,i)=>{const y=34+34*i,fr=Math.min(1,2*v.p*v.p/(1+k)),x=20+250*fr,sp=L(x,y,x,y-9,'tl','style="stroke:var(--cd);stroke-width:2.5"'),bd=[O(x,y,11,AC),O(x,y,11,EP),`<circle cx="${x}" cy="${y}" r="9" style="fill:none;stroke:${AC};stroke-width:3"/>`,`<circle cx="${x}" cy="${y}" r="8" style="fill:none;stroke:${EK};stroke-width:6"/>`][i];
+s+=L(14,y+15,270,y+15)+`<g transform="rotate(${250*fr/11*57.3} ${x} ${y})">${bd}${sp}</g>`+XT(282,y+4,N[i],'st','start');
+tb+=`<tr><td>${N[i]}<td>${f(10*sn/(1+k))}<td>${f(Math.sqrt(12/(10*sn/(1+k))),2)}<td>${f(100*k/(1+k),0)}%`});
+return{svg:`<svg viewBox="0 0 360 160">${s}${L(270,12,270,152,'tl','stroke-dasharray="4 3"')}</svg>`,
+out:`t = <b>${f(v.p*Tm,2)} s</b> (lintasan 6 m)<table><tr><th>Benda<th>a (m/s²)<th>Tiba (s)<th>E<sub>k</sub> rotasi / total${tb}</table>`}}}];
+const RLQ=[
+{q:'Kunci pas 0,4 m ditekan dengan gaya 50 N yang membentuk sudut 30° terhadap lengan. Torsi yang dihasilkan ...',o:['5 N·m','10 N·m','17,3 N·m','20 N·m'],a:1,e:'τ = r F sin θ = 0,4 × 50 × 0,5 = 10 N·m. Jebakan: memakai cos 30° menghasilkan 17,3 N·m.',sim:[0,{F:50,r:.4,t:30}],ill:SV(100,O(40,60,6,'var(--tx)')+R(40,55,150,10,GR)+AS(190,60,222,22,EK,3)+XC(230,22,'50 N',EK,'start')+`<path class="tl" d="M214 60 A24 24 0 0 0 208 44"/>`+XT(224,50,'30°','st','start')+XT(115,86,'0,4 m'))},
+{q:'Cakram pejal 2 kg, jari-jari 0,2 m, menerima torsi 0,8 N·m. Percepatan sudutnya ...',o:['2 rad/s²','4 rad/s²','10 rad/s²','20 rad/s²','40 rad/s²'],a:3,e:'I = ½ m R² = ½ × 2 × 0,04 = 0,04 kg·m². α = τ / I = 0,8 / 0,04 = 20 rad/s².',sim:[1,{s:1,m:2,R:.2,F:4}]},
+{q:'Penari es berputar dengan I = 3 kg·m² dan ω = 4 rad/s. Tangannya merapat sehingga I = 1,5 kg·m². Kecepatan sudutnya kini ...',o:['2 rad/s','6 rad/s','8 rad/s','12 rad/s'],a:2,e:'I₁ ω₁ = I₂ ω₂. 3 × 4 = 1,5 × ω₂, jadi ω₂ = 8 rad/s.',sim:[2,{r:.8,w:2}]},
+{q:'Bola pejal 2 kg menggelinding tanpa slip dengan laju 3 m/s. Energi kinetik totalnya ...',o:['9 J','12,6 J','18 J','21 J'],a:1,e:'E<sub>k trans</sub> = ½ × 2 × 9 = 9 J. E<sub>k rot</sub> = ⅕ × 2 × 9 = 3,6 J. Total 12,6 J. Jebakan: hanya menghitung translasi (9 J).'},
+{q:'Bola pejal, silinder pejal, dan cincin bermassa sama dilepas bersamaan dari puncak lereng yang sama. Yang tiba paling dulu ...',o:['Cincin','Silinder pejal','Bola pejal','Ketiganya bersamaan','Bergantung massanya'],a:2,e:'a = g sin θ / (1 + I/mR²). Pecahan I/mR² terkecil (⅖) dimiliki bola pejal, jadi a terbesar. Massa dan jari-jari tercoret.',sim:[3,{t:30,p:.6}]}];
+const RTF=[['Torsi dan usaha sama-sama bersatuan N·m sehingga keduanya besaran yang sama.',1,'Torsi adalah vektor efek putar, usaha adalah skalar. Satuannya tampak sama tetapi besarannya berbeda.'],
+['Dua benda bermassa sama selalu memiliki momen inersia yang sama.',1,'I bergantung pada sebaran massa terhadap sumbu putar, bukan hanya massa total.'],
+['Penari es merapatkan tangan, kecepatan sudutnya membesar.',0,'I mengecil, sedangkan L = I ω tetap tanpa torsi luar, sehingga ω membesar.'],
+['Pada bola pejal yang menggelinding, energi kinetik rotasinya 2/7 dari energi kinetik total.',0,'E<sub>k rot</sub> = ⅕ m v² dan total = 7/10 m v², perbandingannya 2 : 7.']].map(([q,a,e])=>({q,o:['Benar','Salah'],a,e}));
+
+const TOP=[{name:'Usaha dan Energi',ic:'⚡',M,SIMS,LQ,TF,ILL,FT,NF},{name:'Hukum Newton',ic:'🍎',M:NM,SIMS:NSIMS,LQ:NLQ,TF:NTF,ILL:NILL,FT:['4.1'],NF:['8.2']},{name:'Gerak Rotasi',ic:'🌀',M:RM,SIMS:RSIMS,LQ:RLQ,TF:RTF,ILL:RILL,FT:[],NF:[]}];
 
 function fold(h,mi,st){const{ILL,FT,NF}=CT();const k=mi+'.'+st,d=document.createElement('div'),x=document.createElement('details');d.innerHTML=h;
 if(!NF.includes(k)){const re=FT.includes(k)?/^(P|UL|OL|TABLE)$/:/^(P|UL|OL)$/;[...d.children].filter(n=>re.test(n.tagName)).forEach(n=>x.append(n))}
@@ -374,7 +466,7 @@ $('#pv').onclick=()=>{S.st--;draw()};
 $('#nx').onclick=()=>{if(S.st<T-1){S.st++;draw();return}D().m[S.mi]=1;sv();if(S.mi<M.length-1){S.mi++;S.st=0}else S.tab='latihan';draw()}}
 function vWahana(){const SIMS=CT().SIMS,sm=SIMS[S.sim],v={};sm.c.forEach(c=>v[c[0]]=c[5]);Object.assign(v,S.pre||{});S.pre=null;
 $('#m').innerHTML=`<div class="path">${SIMS.map((x,i)=>`<button data-s="${i}" class="${i==S.sim?'cur':''}">${x.n}</button>`).join('')}</div><section class="card"><p class="sub">${sm.d.replace('E_m','Em')}</p><div id="sv"></div><div class="ctl">${sm.c.map(c=>`<label>${c[1]} <b id="v_${c[0]}"></b><input type="range" data-k="${c[0]}" min="${c[2]}" max="${c[3]}" step="${c[4]}" value="${v[c[0]]}"></label>`).join('')}</div><div class="out" id="out"></div></section>`;
-const ins=[...document.querySelectorAll('#m input')],up=()=>{ins.forEach(i=>{v[i.dataset.k]=+i.value;$('#v_'+i.dataset.k).textContent=f(+i.value,2)});const r=sm.r(v);$('#sv').innerHTML=r.svg;$('#out').innerHTML=r.out};
+const ins=[...document.querySelectorAll('#m input')],up=()=>{ins.forEach(i=>{v[i.dataset.k]=+i.value;const lb=sm.c.find(c=>c[0]==i.dataset.k)[6];$('#v_'+i.dataset.k).textContent=lb?lb[+i.value]:f(+i.value,2)});const r=sm.r(v);$('#sv').innerHTML=r.svg;$('#out').innerHTML=r.out};
 ins.forEach(i=>i.oninput=up);up()}
 function vLat(){const{LQ,TF}=CT();$('#m').innerHTML=`<section class="card"><p class="sub">Latihan dengan g = 10 m/s². Pembahasan bisa dibuka kapan saja, tanpa perlu menjawab dulu.</p><p class="sc" id="sc"></p><button class="tg" id="ao">Buka semua pembahasan</button><h3>Soal pilihan</h3><div id="l1"></div><h3>Benar atau salah?</h3><div id="l2"></div></section>`;
 let a=0,b=0;const up=()=>$('#sc').textContent=`Benar ${a+b} dari ${LQ.length+TF.length} soal`;up();
